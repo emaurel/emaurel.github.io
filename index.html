@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Edgar Maurel - AI &amp; Software Engineer</title>
+  <meta name="description" content="Edgar Maurel - AI &amp; software engineer specializing in LLM applications, multi-agent systems, MCP servers, backend and full-stack development. Based in Jönköping, Sweden. Available for freelance work." />
+
+  <!-- Open Graph / social preview -->
+  <meta property="og:title" content="Edgar Maurel - AI &amp; Software Engineer" />
+  <meta property="og:description" content="LLM applications, multi-agent systems, MCP servers, backend &amp; full-stack. Freelance AI engineer based in Sweden." />
+  <meta property="og:type" content="website" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <!-- ============ NAV ============ -->
+  <header class="nav" id="nav">
+    <a href="#top" class="nav__brand">EM<span>.</span></a>
+    <nav class="nav__links">
+      <a href="#about">About</a>
+      <a href="#projects">Projects</a>
+      <a href="#experience">Experience</a>
+      <a href="#skills">Skills</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <a class="btn btn--sm" href="https://www.malt.com/profile/edgarmaurel" target="_blank" rel="noopener">Hire on Malt</a>
+  </header>
+
+  <!-- ============ HERO ============ -->
+  <section class="hero" id="top">
+    <div class="hero__inner">
+      <p class="hero__eyebrow">
+        <span class="dot"></span> Available for freelance · Remote · Jönköping, SE
+      </p>
+      <h1 class="hero__title">Edgar Maurel</h1>
+      <h2 class="hero__subtitle">
+        AI &amp; Software Engineer - I build <span class="grad">LLM applications</span>,
+        <span class="grad">multi-agent systems</span> and the backends behind them.
+      </h2>
+      <p class="hero__lede">
+        I turn complex technical challenges into practical, reliable solutions:
+        MCP servers, intelligent assistants, agent orchestration and custom
+        automation - from prototype to production.
+      </p>
+      <div class="hero__cta">
+        <a class="btn btn--primary" href="#projects">View my work</a>
+        <a class="btn" href="https://www.malt.com/profile/edgarmaurel" target="_blank" rel="noopener">Malt profile</a>
+        <a class="btn btn--ghost" href="https://github.com/emaurel" target="_blank" rel="noopener">GitHub</a>
+      </div>
+      <ul class="hero__stack">
+        <li>Python</li><li>TypeScript</li><li>Rust</li><li>Flutter</li>
+        <li>Claude Agent SDK</li><li>MCP</li><li>FastAPI</li>
+      </ul>
+    </div>
+  </section>
+
+  <main>
+    <!-- ============ ABOUT ============ -->
+    <section class="section" id="about">
+      <div class="section__head">
+        <span class="section__num">01</span>
+        <h2 class="section__title">About</h2>
+      </div>
+      <div class="about">
+        <div class="about__body">
+          <p>
+            I'm an AI and software engineer specializing in <strong>LLM applications</strong>,
+            <strong>backend development</strong> and <strong>full-stack web solutions</strong>.
+            I've integrated AI into production environments - building MCP servers,
+            intelligent assistants and custom automation tools with Python, TypeScript,
+            FastAPI, React, Docker and Azure OpenAI.
+          </p>
+          <p>
+            I recently completed my <strong>Artificial Intelligence</strong> studies at
+            Jönköping University in Sweden, sharpening my expertise through both academic
+            work and real-world client projects. I enjoy taking a fuzzy problem and turning
+            it into something dependable that delivers real value.
+          </p>
+          <p>
+            I work remotely and I'm bilingual - <strong>French</strong> (native) and
+            <strong>English</strong> (fluent).
+          </p>
+        </div>
+        <aside class="about__facts">
+          <div class="fact"><span class="fact__k">Role</span><span class="fact__v">AI Engineer · Full-stack</span></div>
+          <div class="fact"><span class="fact__k">Based in</span><span class="fact__v">Jönköping, Sweden</span></div>
+          <div class="fact"><span class="fact__k">Work</span><span class="fact__v">Remote · Freelance</span></div>
+          <div class="fact"><span class="fact__k">Languages</span><span class="fact__v">French · English</span></div>
+          <div class="fact"><span class="fact__k">Education</span><span class="fact__v">M. AI, Jönköping · Prépa MPSI</span></div>
+        </aside>
+      </div>
+    </section>
+
+    <!-- ============ PROJECTS ============ -->
+    <section class="section" id="projects">
+      <div class="section__head">
+        <span class="section__num">02</span>
+        <h2 class="section__title">Selected projects</h2>
+      </div>
+
+      <div class="filters" id="filters">
+        <button class="filter is-active" data-filter="all">All</button>
+        <button class="filter" data-filter="ai">AI &amp; Agents</button>
+        <button class="filter" data-filter="mobile">Mobile</button>
+        <button class="filter" data-filter="web">Web</button>
+        <button class="filter" data-filter="systems">Systems &amp; Algorithms</button>
+      </div>
+
+      <div class="grid" id="grid">
+
+        <!-- agent_environment -->
+        <article class="card" data-cat="ai web">
+          <div class="card__art art--orange"><span>◈</span></div>
+          <div class="card__body">
+            <div class="card__top">
+              <h3 class="card__title">Agent Environment</h3>
+              <span class="tag tag--star">Flagship</span>
+            </div>
+            <p class="card__desc">
+              A multi-agent system built on the <strong>Claude Agent SDK</strong>, rendered
+              as an interactive pixel-art world where each stage of a workflow is a room and
+              each agent a sprite. The interesting part: agents that hit a missing capability
+              <strong>fabricate their own MCP tools at runtime</strong>, gated by a reviewer
+              agent and human approvals. FastAPI + WebSockets backend, Vite + TypeScript +
+              Phaser frontend.
+            </p>
+            <ul class="card__tags">
+              <li>Claude Agent SDK</li><li>Multi-agent</li><li>MCP</li>
+              <li>FastAPI</li><li>WebSockets</li><li>TypeScript</li>
+            </ul>
+            <div class="card__links">
+              <span class="card__note">Private project · code on request</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- recipe_saver -->
+        <article class="card" data-cat="ai mobile">
+          <div class="card__art art--amber"><span>▤</span></div>
+          <div class="card__body">
+            <div class="card__top">
+              <h3 class="card__title">Recipe Saver</h3>
+              <span class="tag tag--star">Flagship</span>
+            </div>
+            <p class="card__desc">
+              A Flutter recipe app with an <strong>AI import pipeline</strong>: share a
+              TikTok/Instagram cooking video and a self-hosted transcription service turns
+              it into a structured recipe - title, ingredients, timed steps - ready to edit
+              and save. Adds folders, cooking timers (local notifications) and an offline
+              SQLite library.
+            </p>
+            <ul class="card__tags">
+              <li>Flutter</li><li>Dart</li><li>AI import</li>
+              <li>Self-hosted backend</li><li>SQLite</li>
+            </ul>
+            <div class="card__links">
+              <span class="card__note">Private project · code on request</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- kindle_unpack -->
+        <article class="card" data-cat="systems mobile">
+          <div class="card__art art--teal"><span>❯_</span></div>
+          <div class="card__body">
+            <div class="card__top">
+              <h3 class="card__title">kindle_unpack</h3>
+            </div>
+            <p class="card__desc">
+              A <strong>pure-Dart library</strong> that reads Amazon Kindle formats
+              (MOBI / AZW / AZW3 / KF8) and re-emits them as EPUB 3 - filling a real gap
+              in the Flutter ecosystem. A from-scratch port of the Python KindleUnpack:
+              bytes in, HTML + metadata + images (or a packaged EPUB) out.
+            </p>
+            <ul class="card__tags">
+              <li>Dart</li><li>Binary formats</li><li>Library</li><li>EPUB</li>
+            </ul>
+            <div class="card__links">
+              <a href="https://github.com/emaurel/kindle_unpack" target="_blank" rel="noopener">Code →</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- My_book_reader -->
+        <article class="card" data-cat="mobile">
+          <div class="card__art art--indigo"><span>▥</span></div>
+          <div class="card__body">
+            <div class="card__top">
+              <h3 class="card__title">Book Reader</h3>
+            </div>
+            <p class="card__desc">
+              A Flutter Android e-reader supporting <strong>EPUB, PDF, TXT, AZW, AZW3 and
+              MOBI</strong>, with paginated reading, custom annotations (citations,
+              dictionaries, characters) and a series-organized library. Kindle formats are
+              converted on the fly via the sister project <em>kindle_unpack</em>.
+            </p>
+            <ul class="card__tags">
+              <li>Flutter</li><li>Android</li><li>PDF / EPUB</li>
+            </ul>
+            <div class="card__links">
+              <a href="https://github.com/emaurel/My_book_reader" target="_blank" rel="noopener">Code →</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- league_better_client -->
+        <article class="card" data-cat="mobile">
+          <div class="card__art art--rose"><span>◆</span></div>
+          <div class="card__body">
+            <div class="card__top">
+              <h3 class="card__title">League Better Client</h3>
+            </div>
+            <p class="card__desc">
+              A Flutter client that enhances the League of Legends experience by talking to
+              the live game client over the <strong>LCU API and WebSockets</strong> - join a
+              friend's lobby and drive it from lobby through champion select, with a modern UI.
+            </p>
+            <ul class="card__tags">
+              <li>Flutter</li><li>WebSockets</li><li>REST API</li><li>Real-time</li>
+            </ul>
+            <div class="card__links">
+              <a href="https://github.com/emaurel/league_better_client" target="_blank" rel="noopener">Code →</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- competition_job_machine -->
+        <article class="card" data-cat="systems">
+          <div class="card__art art--green"><span>∑</span></div>
+          <div class="card__body">
+            <div class="card__top">
+              <h3 class="card__title">Scheduling Optimizer</h3>
+            </div>
+            <p class="card__desc">
+              A constraint-optimization solver for a job-scheduling competition, combining
+              a <strong>MiniZinc</strong> constraint model with custom Python heuristics and
+              a local-search improvement pass. Includes a checker and benchmarked results
+              across small and large instances.
+            </p>
+            <ul class="card__tags">
+              <li>Python</li><li>MiniZinc</li><li>Constraint programming</li><li>Optimization</li>
+            </ul>
+            <div class="card__links">
+              <a href="https://github.com/emaurel/competition_job_machine" target="_blank" rel="noopener">Code →</a>
+            </div>
+          </div>
+        </article>
+
+      </div>
+      <p class="grid__more">
+        More on <a href="https://github.com/emaurel" target="_blank" rel="noopener">GitHub →</a>
+      </p>
+    </section>
+
+    <!-- ============ EXPERIENCE ============ -->
+    <section class="section" id="experience">
+      <div class="section__head">
+        <span class="section__num">03</span>
+        <h2 class="section__title">Experience</h2>
+      </div>
+      <ol class="timeline">
+        <li class="tl">
+          <div class="tl__when">May - Jun 2026</div>
+          <div class="tl__what">
+            <h3>Rust Scientific Algorithms <span>· Tercen</span></h3>
+            <p>
+              Re-engineered the Pamsoft Grid &amp; Grid Quantitation algorithms from
+              <strong>MATLAB to Rust</strong> while preserving scientific accuracy. Shipped
+              two production Rust operators into Tercen's workflow system and wrote automated
+              validation against <strong>200 real datasets</strong>.
+            </p>
+            <ul class="chips"><li>Rust</li><li>MATLAB</li><li>Data analysis</li></ul>
+          </div>
+        </li>
+        <li class="tl">
+          <div class="tl__when">Apr - Jul 2025</div>
+          <div class="tl__what">
+            <h3>AI Development Internship <span>· Tercen</span></h3>
+            <p>
+              Designed and built an <strong>end-to-end AI solution</strong> integrated into
+              the Tercen platform, enabling automated scientific data-analysis workflows
+              driven from user-defined hypotheses.
+            </p>
+            <ul class="chips"><li>MCP</li><li>Dart</li><li>APIs</li><li>LLMs</li></ul>
+          </div>
+        </li>
+        <li class="tl">
+          <div class="tl__when">Jul - Dec 2023</div>
+          <div class="tl__what">
+            <h3>Backend / AI &amp; Prompt Engineering <span>· Kuzzle</span></h3>
+            <p>
+              On a mission for <strong>La Poste</strong>, built an AI solution that generates
+              complex configuration files from plain natural-language descriptions -
+              cutting manual effort and improving reliability.
+            </p>
+            <ul class="chips"><li>Python</li><li>LangChain</li><li>Prompt engineering</li><li>Backend</li></ul>
+          </div>
+        </li>
+      </ol>
+    </section>
+
+    <!-- ============ SKILLS ============ -->
+    <section class="section" id="skills">
+      <div class="section__head">
+        <span class="section__num">04</span>
+        <h2 class="section__title">Skills</h2>
+      </div>
+      <div class="skills">
+        <div class="skillcol">
+          <h3>AI &amp; LLMs</h3>
+          <ul>
+            <li>Claude Agent SDK</li><li>MCP servers</li><li>Multi-agent systems</li>
+            <li>LangChain</li><li>Azure OpenAI</li><li>Prompt engineering</li><li>RAG</li>
+          </ul>
+        </div>
+        <div class="skillcol">
+          <h3>Backend</h3>
+          <ul>
+            <li>Python</li><li>FastAPI</li><li>Rust</li><li>Node.js</li>
+            <li>WebSockets</li><li>REST APIs</li><li>Docker</li>
+          </ul>
+        </div>
+        <div class="skillcol">
+          <h3>Frontend &amp; Mobile</h3>
+          <ul>
+            <li>Flutter / Dart</li><li>TypeScript</li><li>React</li>
+            <li>HTML / CSS</li><li>Vite</li>
+          </ul>
+        </div>
+        <div class="skillcol">
+          <h3>Foundations</h3>
+          <ul>
+            <li>C / C++</li><li>Haskell</li><li>Algorithms</li>
+            <li>Optimization / CP</li><li>Mathematics</li><li>Git</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ CONTACT ============ -->
+    <section class="section section--contact" id="contact">
+      <div class="section__head">
+        <span class="section__num">05</span>
+        <h2 class="section__title">Let's work together</h2>
+      </div>
+      <p class="contact__lede">
+        Looking for an AI engineer for your next project? I'm available for freelance
+        work, remotely. The fastest way to reach me is through Malt.
+      </p>
+      <div class="contact__cta">
+        <a class="btn btn--primary" href="https://www.malt.com/profile/edgarmaurel" target="_blank" rel="noopener">Hire me on Malt</a>
+        <a class="btn" href="mailto:edgar.maurel@gmail.com">Email me</a>
+        <a class="btn btn--ghost" href="https://github.com/emaurel" target="_blank" rel="noopener">GitHub</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>© <span id="year"></span> Edgar Maurel · Built with plain HTML, CSS &amp; JS.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
