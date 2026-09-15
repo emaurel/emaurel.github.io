@@ -52,7 +52,10 @@ branch → Branch: `main` / `/ (root)`**. Your site goes live at
 - **Colors** - edit the `:root` variables at the top of `styles.css`.
 - **Projects** - each project is one `<article class="card">` block in
   `index.html`; `data-cat` controls which filter(s) it appears under
-  (`ai`, `mobile`, `web`, `systems`).
+  (`ai`, `mobile`, `web`, `systems`). Adding `card--feature` makes a card span
+  the full grid width and enables the two-column body (`feature__grid`:
+  lede + `feature__stats` on the left, `feature__points` on the right) - used
+  for the flagship Agent Environment card.
 - **Screenshots** - the cards use gradient placeholders. To use real images,
   replace the `<div class="card__art">…</div>` with
   `<img class="card__art" src="assets/xyz.png" alt="">` and add the file to

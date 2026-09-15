@@ -113,27 +113,147 @@
       <div class="grid" id="grid">
 
         <!-- agent_environment -->
-        <article class="card" data-cat="ai web">
+        <article class="card card--feature" data-cat="ai web">
           <div class="card__art art--orange"><span>◈</span></div>
           <div class="card__body">
             <div class="card__top">
               <h3 class="card__title">Agent Environment</h3>
               <span class="tag tag--star">Flagship</span>
             </div>
-            <p class="card__desc">
-              A multi-agent system built on the <strong>Claude Agent SDK</strong>, rendered
-              as an interactive pixel-art world where each stage of a workflow is a room and
-              each agent a sprite. The interesting part: agents that hit a missing capability
-              <strong>fabricate their own MCP tools at runtime</strong>, gated by a reviewer
-              agent and human approvals. FastAPI + WebSockets backend, Vite + TypeScript +
-              Phaser frontend.
-            </p>
+            <div class="feature__grid">
+              <div class="feature__lede">
+                <p class="card__desc">
+                  An <strong>agent-operated web agency</strong>, built on the
+                  <strong>Claude Agent SDK</strong> and rendered as a pixel-art world you
+                  supervise from above. Eleven agents across twelve rooms find local
+                  businesses that trade without a website, research them from public sources
+                  and their own published photographs, build them a site on spec, check it in
+                  a real browser, publish a preview and email the owner a quote.
+                </p>
+                <p class="card__desc">
+                  A human approves at three gates - publish, send, deliver. Everything between
+                  them routes itself: when a lead changes stage, the room whose workbench
+                  declares that stage is dispatched. Python / FastAPI + WebSockets backend,
+                  Vite + TypeScript + Phaser frontend, ~16k lines.
+                </p>
+                <dl class="feature__stats">
+                  <div><dt>Agents</dt><dd>11</dd></div>
+                  <div><dt>Rooms</dt><dd>12</dd></div>
+                  <div><dt>Human gates</dt><dd>3</dd></div>
+                  <div><dt>Pipeline stages</dt><dd>declarative</dd></div>
+                </dl>
+              </div>
+              <ul class="feature__points">
+                <li>
+                  <strong>Agents that build their own tools.</strong> An agent that hits a
+                  missing capability files a tool request; an overseer agent reviews it, a
+                  toolsmith agent writes the MCP module, it hot-loads, and the interrupted run
+                  is retried automatically. Risky requests wait for human approval.
+                </li>
+                <li>
+                  <strong>The rooms are the routing table.</strong> Each room is a YAML
+                  manifest declaring which workbench handles which pipeline stage - so adding
+                  a stage is a file, not a change to the engine.
+                </li>
+                <li>
+                  <strong>Agents hire each other.</strong> A room staffs up to ten
+                  interchangeable workers under load, and an agent mid-task can hire a
+                  specialist for one subtask - a logo, an icon set - which can ask another
+                  room to review its work before handing back.
+                </li>
+                <li>
+                  <strong>Nothing judges a page it hasn't seen.</strong> An HTTP fetch can't
+                  tell a firewall block from a dead site, so the audit returns
+                  <em>inconclusive</em> rather than a score, and only a model that has
+                  rendered the page in Playwright and looked at the screenshot may judge it.
+                </li>
+                <li>
+                  <strong>Guardrails live in code, not prompts.</strong> Previews ship
+                  <code>noindex</code> and an unaffiliated-preview banner, drafts are scanned
+                  for billing language, a QA pass without visual proof is downgraded, and a
+                  build that produced no files is a failed run whatever the model reported.
+                </li>
+              </ul>
+            </div>
             <ul class="card__tags">
               <li>Claude Agent SDK</li><li>Multi-agent</li><li>MCP</li>
               <li>FastAPI</li><li>WebSockets</li><li>TypeScript</li>
+              <li>Phaser</li><li>Playwright</li><li>Cloudflare Pages</li>
             </ul>
             <div class="card__links">
               <span class="card__note">Private project · code on request</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- My_book_reader / Lorekeeper -->
+        <article class="card card--feature" data-cat="mobile">
+          <div class="card__art art--indigo"><span>▥</span></div>
+          <div class="card__body">
+            <div class="card__top">
+              <h3 class="card__title">Lorekeeper</h3>
+              <span class="tag tag--star">Flagship</span>
+            </div>
+            <div class="feature__grid">
+              <div class="feature__lede">
+                <p class="card__desc">
+                  A Flutter e-reader for <strong>people who read long series</strong> - the
+                  part no reader app handles. It opens EPUB, PDF, TXT and Kindle's
+                  AZW / AZW3 / MOBI, then adds the layer around the book: a cast of characters
+                  with relationships, affiliations and status timelines, saved citations,
+                  notes, and passage-level links between books, all on-device.
+                </p>
+                <p class="card__desc">
+                  The idea it's built around is <strong>spoiler-aware notes</strong>. Every
+                  character description is anchored to the plot point it reveals - book,
+                  chapter, even the page inside that chapter - so the app hides what you
+                  haven't read yet and reveals it as you go. ~24k lines of Dart across 12
+                  feature modules, 22 versioned SQLite migrations, EN / FR / SV.
+                </p>
+                <dl class="feature__stats">
+                  <div><dt>Formats read</dt><dd>6</dd></div>
+                  <div><dt>Feature modules</dt><dd>12</dd></div>
+                  <div><dt>Schema versions</dt><dd>22</dd></div>
+                  <div><dt>Languages</dt><dd>EN · FR · SV</dd></div>
+                </dl>
+              </div>
+              <ul class="feature__points">
+                <li>
+                  <strong>Kindle formats, no desktop step.</strong> AZW / AZW3 / MOBI are
+                  converted to EPUB on import by <em>kindle_unpack</em>, the sister library I
+                  wrote from scratch in pure Dart because the Flutter ecosystem had nothing
+                  that could read them.
+                </li>
+                <li>
+                  <strong>A cast that changes as you read.</strong> Characters carry nested
+                  affiliations, relationships, a status timeline and a graph view - and every
+                  entry knows which plot point it belongs to.
+                </li>
+                <li>
+                  <strong>Reading measured, not guessed.</strong> Page turns are logged as
+                  events, which gives day / week / month charts, a word count and an all-time
+                  view rather than a self-reported streak.
+                </li>
+                <li>
+                  <strong>Your library stays yours.</strong> Bundles round-trip a book with
+                  its characters, customs and relationships; backup and restore survive an
+                  app-package rename by rewriting stored absolute paths.
+                </li>
+                <li>
+                  <strong>Built like a shipped app.</strong> Riverpod + go_router, three
+                  paginated rendering engines (CSS multi-column WebView, <code>pdfx</code>,
+                  a <code>TextPainter</code> paginator), CI that writes real changelogs, and
+                  a privacy policy and landing page for the Play Console.
+                </li>
+              </ul>
+            </div>
+            <ul class="card__tags">
+              <li>Flutter</li><li>Dart</li><li>Riverpod</li><li>SQLite</li>
+              <li>EPUB / PDF / MOBI</li><li>Android</li><li>i18n</li><li>CI/CD</li>
+            </ul>
+            <div class="card__links">
+              <a href="https://github.com/emaurel/My_book_reader" target="_blank" rel="noopener">Code →</a>
+              <a href="https://emaurel.github.io/My_book_reader/" target="_blank" rel="noopener">Site →</a>
             </div>
           </div>
         </article>
@@ -144,7 +264,6 @@
           <div class="card__body">
             <div class="card__top">
               <h3 class="card__title">Recipe Saver</h3>
-              <span class="tag tag--star">Flagship</span>
             </div>
             <p class="card__desc">
               A Flutter recipe app with an <strong>AI import pipeline</strong>: share a
@@ -174,35 +293,15 @@
               A <strong>pure-Dart library</strong> that reads Amazon Kindle formats
               (MOBI / AZW / AZW3 / KF8) and re-emits them as EPUB 3 - filling a real gap
               in the Flutter ecosystem. A from-scratch port of the Python KindleUnpack:
-              bytes in, HTML + metadata + images (or a packaged EPUB) out.
+              bytes in, HTML + metadata + images (or a packaged EPUB) out. Published on
+              pub.dev and used by <em>Lorekeeper</em> to open Kindle books on the device.
             </p>
             <ul class="card__tags">
               <li>Dart</li><li>Binary formats</li><li>Library</li><li>EPUB</li>
             </ul>
             <div class="card__links">
               <a href="https://github.com/emaurel/kindle_unpack" target="_blank" rel="noopener">Code →</a>
-            </div>
-          </div>
-        </article>
-
-        <!-- My_book_reader -->
-        <article class="card" data-cat="mobile">
-          <div class="card__art art--indigo"><span>▥</span></div>
-          <div class="card__body">
-            <div class="card__top">
-              <h3 class="card__title">Book Reader</h3>
-            </div>
-            <p class="card__desc">
-              A Flutter Android e-reader supporting <strong>EPUB, PDF, TXT, AZW, AZW3 and
-              MOBI</strong>, with paginated reading, custom annotations (citations,
-              dictionaries, characters) and a series-organized library. Kindle formats are
-              converted on the fly via the sister project <em>kindle_unpack</em>.
-            </p>
-            <ul class="card__tags">
-              <li>Flutter</li><li>Android</li><li>PDF / EPUB</li>
-            </ul>
-            <div class="card__links">
-              <a href="https://github.com/emaurel/My_book_reader" target="_blank" rel="noopener">Code →</a>
+              <a href="https://pub.dev/packages/kindle_unpack" target="_blank" rel="noopener">pub.dev →</a>
             </div>
           </div>
         </article>
@@ -314,21 +413,22 @@
           <h3>AI &amp; LLMs</h3>
           <ul>
             <li>Claude Agent SDK</li><li>MCP servers</li><li>Multi-agent systems</li>
-            <li>LangChain</li><li>Azure OpenAI</li><li>Prompt engineering</li><li>RAG</li>
+            <li>Agent orchestration</li><li>LangChain</li><li>Azure OpenAI</li>
+            <li>Prompt engineering</li><li>RAG</li>
           </ul>
         </div>
         <div class="skillcol">
           <h3>Backend</h3>
           <ul>
             <li>Python</li><li>FastAPI</li><li>Rust</li><li>Node.js</li>
-            <li>WebSockets</li><li>REST APIs</li><li>Docker</li>
+            <li>WebSockets</li><li>REST APIs</li><li>Docker</li><li>Playwright</li>
           </ul>
         </div>
         <div class="skillcol">
           <h3>Frontend &amp; Mobile</h3>
           <ul>
             <li>Flutter / Dart</li><li>TypeScript</li><li>React</li>
-            <li>HTML / CSS</li><li>Vite</li>
+            <li>HTML / CSS</li><li>Vite</li><li>Phaser</li>
           </ul>
         </div>
         <div class="skillcol">

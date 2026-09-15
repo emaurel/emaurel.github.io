@@ -213,6 +213,45 @@ strong { color: #fff; font-weight: 600; }
 .art--sky    { background: linear-gradient(135deg, #0ea5e9, #075985); }
 
 .card__body { padding: 1.3rem; display: flex; flex-direction: column; flex: 1; }
+
+/* Flagship card - spans the grid, two columns inside */
+.card--feature { grid-column: 1 / -1; }
+.card--feature .card__art { height: 88px; font-size: 2rem; }
+.card--feature .card__body { padding: 1.6rem; }
+.card--feature .card__title { font-size: 1.45rem; }
+.feature__grid {
+  display: grid; grid-template-columns: 1.05fr 1fr; gap: 1.6rem 2.2rem;
+  align-items: start; margin-bottom: .4rem;
+}
+.feature__lede { display: flex; flex-direction: column; gap: .9rem; }
+.feature__lede .card__desc { flex: 0 1 auto; font-size: 1rem; }
+.feature__stats {
+  display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .6rem;
+  margin-top: .3rem;
+}
+.feature__stats > div {
+  background: var(--panel-2); border: 1px solid var(--line);
+  border-radius: 10px; padding: .6rem .75rem;
+}
+.feature__stats dt {
+  font-size: .68rem; text-transform: uppercase; letter-spacing: .06em;
+  color: var(--faint); margin-bottom: .15rem;
+}
+.feature__stats dd {
+  font-family: "JetBrains Mono", monospace; font-size: 1.05rem;
+  font-weight: 500; color: var(--accent-2);
+}
+.feature__points { list-style: none; display: flex; flex-direction: column; gap: .75rem; }
+.feature__points li {
+  color: var(--muted); font-size: .92rem; line-height: 1.55;
+  padding-left: 1.1rem; position: relative;
+}
+.feature__points li::before { content: "\25b8"; position: absolute; left: 0; color: var(--accent); }
+.feature__points code {
+  font-family: "JetBrains Mono", monospace; font-size: .85em;
+  color: var(--accent-2); background: var(--panel-2);
+  padding: .05rem .3rem; border-radius: 4px;
+}
 .card__top { display: flex; align-items: center; gap: .6rem; margin-bottom: .6rem; }
 .card__title { font-size: 1.2rem; font-weight: 700; letter-spacing: -.01em; }
 .tag {
@@ -283,6 +322,10 @@ strong { color: #fff; font-weight: 600; }
 .reveal.is-in { opacity: 1; transform: none; }
 
 /* ---------- Responsive ---------- */
+@media (max-width: 860px) {
+  .feature__grid { grid-template-columns: 1fr; }
+}
+
 @media (max-width: 760px) {
   .nav__links { display: none; }
   .about { grid-template-columns: 1fr; }
