@@ -112,76 +112,113 @@
 
       <div class="grid" id="grid">
 
-        <!-- agent_environment -->
+        <!-- agent_environment / Tanrim -->
         <article class="card card--feature" data-cat="ai web">
-          <div class="card__art art--orange"><span>◈</span></div>
+          <img class="card__art card__art--shot" src="assets/tanrim-world.png"
+               alt="An isometric map: eleven labelled rooms of a castle, each with the
+                    agent that staffs it standing in it, two of them working and two
+                    carrying a red approval badge.">
           <div class="card__body">
             <div class="card__top">
-              <h3 class="card__title">Agent Environment</h3>
+              <h3 class="card__title">Tanrim</h3>
               <span class="tag tag--star">Flagship</span>
             </div>
             <div class="feature__grid">
               <div class="feature__lede">
                 <p class="card__desc">
-                  An <strong>agent-operated web agency</strong>, built on the
-                  <strong>Claude Agent SDK</strong> and rendered as a pixel-art world you
-                  supervise from above. Eleven agents across twelve rooms find local
-                  businesses that trade without a website, research them from public sources
-                  and their own published photographs, build them a site on spec, check it in
-                  a real browser, publish a preview and email the owner a quote.
+                  An <strong>environment for agent-operated work</strong>, built on the
+                  <strong>Claude Agent SDK</strong> and drawn as a place you supervise from
+                  above. It owns a world of rooms, a pool of workers, a durable ledger, an
+                  enforced state machine, an approval mechanism and an agent runner &mdash;
+                  and it knows nothing about what the work <em>is</em>.
                 </p>
                 <p class="card__desc">
-                  A human approves at three gates - publish, send, deliver. Everything between
-                  them routes itself: when a lead changes stage, the room whose workbench
-                  declares that stage is dispatched. Python / FastAPI + WebSockets backend,
-                  Vite + TypeScript + Phaser frontend, ~16k lines.
+                  Everything about the work arrives from a <strong>plugin</strong>. One runs
+                  an agency that finds businesses trading without a website, researches them
+                  from public sources and their own published photographs, builds them a site
+                  on spec, verifies it in a real browser and emails the owner a quote. Another
+                  runs a job search. A third extends the first. Python / FastAPI backend,
+                  Flutter desktop client, ~38k lines, 401 tests.
                 </p>
                 <dl class="feature__stats">
-                  <div><dt>Agents</dt><dd>11</dd></div>
-                  <div><dt>Rooms</dt><dd>12</dd></div>
-                  <div><dt>Human gates</dt><dd>3</dd></div>
-                  <div><dt>Pipeline stages</dt><dd>declarative</dd></div>
+                  <div><dt>Core</dt><dd>9.7k lines</dd></div>
+                  <div><dt>Plugins</dt><dd>3</dd></div>
+                  <div><dt>Rooms</dt><dd>16</dd></div>
+                  <div><dt>Tests</dt><dd>401</dd></div>
                 </dl>
+                <figure class="feature__shot">
+                  <img src="assets/tanrim-record.png"
+                       alt="A record open in a floating window over the map: its
+                            kind and stage, a Details and a History tab, and cited
+                            fields with a link icon on the sourced ones.">
+                  <figcaption>
+                    A record opens as <strong>blocks</strong> &mdash; a small fixed
+                    vocabulary the client knows how to draw. A plugin answers with
+                    them, or says nothing and gets one inferred from its JSON, so a
+                    new kind of work is readable with no client change. The history
+                    is the core's, built from the state machine for every kind.
+                  </figcaption>
+                </figure>
               </div>
               <ul class="feature__points">
                 <li>
-                  <strong>Agents that build their own tools.</strong> An agent that hits a
-                  missing capability files a tool request; an overseer agent reviews it, a
-                  toolsmith agent writes the MCP module, it hot-loads, and the interrupted run
-                  is retried automatically. Risky requests wait for human approval.
+                  <strong>The core knows nothing about the domain, and tests prove it.</strong>
+                  It may not import a plugin, name a stage or a role, or serve a route about
+                  the work &mdash; one test greps the whole core for the words a plugin owns,
+                  another boots with a synthetic plugin and asserts the real ones' routes are
+                  gone. An install with no plugins has nothing to do, which is the correct
+                  empty state rather than an error.
                 </li>
                 <li>
-                  <strong>The rooms are the routing table.</strong> Each room is a YAML
-                  manifest declaring which workbench handles which pipeline stage - so adding
-                  a stage is a file, not a change to the engine.
+                  <strong>The abstraction was extracted, then proven.</strong> The agency was
+                  built first and the environment pulled out of it. A second, unrelated
+                  pipeline &mdash; reads fifteen job boards, screens, writes, submits behind
+                  an approval &mdash; was ported in with <em>no change to the core</em>. The
+                  third plugin adds two stages to the agency's pipeline while declaring no
+                  rooms and no agents of its own: it patches rather than restates, because
+                  returning a whole room with the same id boots cleanly and silently drops
+                  everything the original had.
                 </li>
                 <li>
-                  <strong>Agents hire each other.</strong> A room staffs up to ten
-                  interchangeable workers under load, and an agent mid-task can hire a
-                  specialist for one subtask - a logo, an icon set - which can ask another
-                  room to review its work before handing back.
+                  <strong>The transition table is law, not documentation.</strong> It was
+                  measured before it was enforced: 23 declared edges, 44 actually taken, and
+                  182 transitions off the table entirely. An undeclared move is now refused
+                  and logged with what <em>was</em> allowed; the operator can always override,
+                  and the history entry records that they did. All 670 historical transitions
+                  were replayed against the new table before it shipped.
                 </li>
                 <li>
                   <strong>Nothing judges a page it hasn't seen.</strong> An HTTP fetch can't
                   tell a firewall block from a dead site, so the audit returns
                   <em>inconclusive</em> rather than a score, and only a model that has
                   rendered the page in Playwright and looked at the screenshot may judge it.
+                  The default is to leave the business alone.
                 </li>
                 <li>
                   <strong>Guardrails live in code, not prompts.</strong> Previews ship
                   <code>noindex</code> and an unaffiliated-preview banner, drafts are scanned
-                  for billing language, a QA pass without visual proof is downgraded, and a
-                  build that produced no files is a failed run whatever the model reported.
+                  for billing language, a QA pass without visual proof is downgraded to a
+                  failure, and a build that produced no files is a failed run whatever the
+                  model reported. Anything irreversible waits at a gate that cannot be
+                  switched off.
+                </li>
+                <li>
+                  <strong>Shipped, measured, deleted.</strong> Agents could once request new
+                  capabilities and have another agent write and hot-load an MCP tool. In four
+                  weeks it produced two tools and nothing since &mdash; every tool actually in
+                  use was written by hand. A gatekeeper loop, an agent, a room and an approval
+                  kind for a capability nobody reached for is cost without return, so it is
+                  gone.
                 </li>
               </ul>
             </div>
             <ul class="card__tags">
               <li>Claude Agent SDK</li><li>Multi-agent</li><li>MCP</li>
-              <li>FastAPI</li><li>WebSockets</li><li>TypeScript</li>
-              <li>Phaser</li><li>Playwright</li><li>Cloudflare Pages</li>
+              <li>FastAPI</li><li>WebSockets</li><li>Flutter</li>
+              <li>Dart</li><li>Playwright</li><li>Cloudflare Pages</li>
             </ul>
             <div class="card__links">
-              <span class="card__note">Private project · code on request</span>
+              <span class="card__note">Private project &middot; code on request</span>
             </div>
           </div>
         </article>

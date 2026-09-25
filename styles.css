@@ -217,6 +217,20 @@ strong { color: #fff; font-weight: 600; }
 /* Flagship card - spans the grid, two columns inside */
 .card--feature { grid-column: 1 / -1; }
 .card--feature .card__art { height: 88px; font-size: 2rem; }
+
+/* A real screenshot rather than a gradient placeholder. Taller, because the
+   point of a screenshot is that you can see what the thing is; `cover` with a
+   centred focal point so the crop keeps the middle of the map at any width. */
+.card__art--shot {
+  display: block; width: 100%; height: 230px;
+  object-fit: cover; object-position: 50% 46%;
+  background: #12141a;                       /* while it loads, and letterboxed */
+}
+.card__art--shot::after { content: none; }
+.card--feature .card__art--shot { height: 230px; }
+@media (max-width: 720px) {
+  .card__art--shot, .card--feature .card__art--shot { height: 150px; }
+}
 .card--feature .card__body { padding: 1.6rem; }
 .card--feature .card__title { font-size: 1.45rem; }
 .feature__grid {
@@ -241,6 +255,19 @@ strong { color: #fff; font-weight: 600; }
   font-family: "JetBrains Mono", monospace; font-size: 1.05rem;
   font-weight: 500; color: var(--accent-2);
 }
+/* The second screenshot, in the shorter column. The bullet list runs a good
+   deal longer than the lede, and an empty half-card says less than a picture
+   of the thing the bullets are about. */
+.feature__shot { margin: .5rem 0 0; }
+.feature__shot img {
+  display: block; width: 100%; border-radius: 10px;
+  border: 1px solid var(--line); background: #12141a;
+}
+.feature__shot figcaption {
+  color: var(--faint); font-size: .82rem; line-height: 1.5; margin-top: .55rem;
+}
+.feature__shot figcaption strong { color: var(--muted); }
+
 .feature__points { list-style: none; display: flex; flex-direction: column; gap: .75rem; }
 .feature__points li {
   color: var(--muted); font-size: .92rem; line-height: 1.55;
